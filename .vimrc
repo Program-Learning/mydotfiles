@@ -25,5 +25,5 @@ autocmd InsertLeave * se nocul
 autocmd InsertEnter * se cul
 
 
-"source ~/.vim/plugins.vim
+source ~/.vim/plugins.vim
 "source ~/.vim/keymaps.vim

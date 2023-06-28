@@ -64,6 +64,7 @@ window#waybar.hidden {
 #pulseaudio,
 #tray,
 #mode,
+#battery,
 #window {
     margin-top: 6px;
     padding: 0 12px;
@@ -95,6 +96,10 @@ window#waybar.hidden {
     color: @text;
 }
 
+#battery {
+    background-color: @base;
+    color: @text;
+}
 #pulseaudio {
     background-color: @base;
     color: @text;

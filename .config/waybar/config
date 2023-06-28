@@ -5,7 +5,7 @@
     "spacing": 6,
     "modules-left": ["wlr/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["tray", "network", "pulseaudio", "memory", "cpu", "clock"],
+    "modules-right": ["tray", "network", "pulseaudio", "memory", "cpu", "clock","battery"],
     "wlr/workspaces": {
         "format": "{icon}",
         "sort-by-number": true,
@@ -35,6 +35,15 @@
         "interval": 1,
         "format": " {used}G",
         "tooltip": false
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "<span foreground='#928374'>{icon}  </span> {capacity}%",
+        "format-charging": "<span foreground='#928374'>{icon}  charging</span> {capacity}%",
+        "format-icons": ["", "", "", "", ""]
     },
     "network": {
         "interval": 1,
