@@ -40,12 +40,12 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-    background: #fff9bb;
-    color: #000000;
+    background: @base;
+    color: @text;
 }
 
 #workspaces button.active:hover {
-    background: #fffcdf;
+    background: @base;
 }
 
 #workspaces button.urgent {
@@ -67,7 +67,7 @@ window#waybar.hidden {
 #window {
     margin-top: 6px;
     padding: 0 12px;
-    color: #ffffff;
+    color: @text;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -81,37 +81,37 @@ window#waybar.hidden {
 }
 
 #clock {
-    background-color: #eefff1;
-    color: #000000;
+    background-color: @base;
+    color: @text;
 }
 
 #cpu {
-    background-color: #FE968B;
-    color: #000000;
+    background-color: @base;
+    color: @text;
 }
 
 #memory {
-    background-color: #FFEAAA;
-    color: #000000;
+    background-color: @base;
+    color: @text;
 }
 
 #pulseaudio {
-    background-color: #b0f5e5;
-    color: #000000;
+    background-color: @base;
+    color: @text;
 }
 
 #network {
-    background-color: #87ddff;
-    color: #000000;
+    background-color: @base;
+    color: @text;
 }
 
 #tray {
-    background-color: rgba(16, 20, 24, 0.5);
+    background-color: @base;
 }
 
 #window {
     font-family: 'Fira Mono', 'Noto Sans CJK SC', sans-serif;
     font-weight: 400;
-    background-color: #cbecff;
-    color: #000000;
+    background-color: @base;
+    color: @text;
 }

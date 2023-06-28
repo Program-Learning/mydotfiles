@@ -3,5 +3,3 @@
 !.gitignore
 !.gitconfig
 !.[^/]*rc
-!.config/
-!.config/**
