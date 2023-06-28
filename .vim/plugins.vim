@@ -1,13 +1,27 @@
 call plug#begin()
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'luochen1990/rainbow'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdcommenter'
+
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+Plug 'preservim/tagbar'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 Plug 'octol/vim-cpp-enhanced-highlight'"
+
+Plug 'pangloss/vim-javascript'"
+
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 call plug#end()
+
 
 set background=dark
 colorscheme onedark
@@ -27,3 +41,11 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END

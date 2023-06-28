@@ -4,8 +4,8 @@
     "height": 40, 
     "spacing": 6,
     "modules-left": ["wlr/workspaces", "hyprland/window"],
-    "modules-center": [],
-    "modules-right": ["tray", "network", "pulseaudio", "memory", "cpu", "clock","battery"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "network", "pulseaudio", "memory", "cpu" ,"battery"],
     "wlr/workspaces": {
         "format": "{icon}",
         "sort-by-number": true,
@@ -14,7 +14,7 @@
         "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
     "hyprland/window": {
-        "format": "\uf061 {}",
+        "format": "\uf061  {}",
         "separate-outputs": true
     },
     "tray": {
@@ -42,12 +42,12 @@
             "critical": 15
         },
         "format": "<span foreground='#928374'>{icon}  </span> {capacity}%",
-        "format-charging": "<span foreground='#928374'>{icon}  charging</span> {capacity}%",
+        "format-charging": "<span foreground='#928374'>⚡ {icon}  </span> {capacity}%",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
         "interval": 1,
-        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "  {essid} ({signalStrength}%)",
         "format-ethernet": "\uf796 {bandwidthUpBits} {bandwidthDownBits}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
@@ -56,10 +56,10 @@
     },
     "pulseaudio": {
         "scroll-step": 5,
-        "format": "{icon} {volume}%",
-        "format-muted": "",
+        "format": "{icon}  {volume}%",
+        "format-muted": "🔇",
         "format-bluetooth": "{icon} {volume}%",
-        "format-bluetooth-muted": " {icon}",
+        "format-bluetooth-muted": "🔇 {icon}",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
