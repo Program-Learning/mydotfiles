@@ -1,0 +1,7 @@
+*
+!.config
+!.gitignore
+!.gitconfig
+!.[^/]*rc
+!.config/
+!.config/**
