@@ -1,4 +1,12 @@
-(defwidget bar []
+(deflisten window :initial "..." "sh ~/.config/eww/scripts/get-window-title")
+
+(defwidget window_w []
+  (box
+    (label :text "${window}"
+    )
+  )
+)
+(defwidget bar []  
   (centerbox :orientation "h"
     (workspaces)
     (music)
@@ -8,7 +16,7 @@
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
     (metric :label "🔊"
             :value volume
-            :onchange "amixer -D pulse sset Master {}%")
+            :onchange "amixer -D pipewire sset Master {}%")
     (metric :label ""
             :value {EWW_RAM.used_mem_perc}
             :onchange "")
@@ -23,22 +31,24 @@
        :space-evenly true
        :halign "start"
        :spacing 10
-    (button :onclick "wmctrl -s 0" 1)
-    (button :onclick "wmctrl -s 1" 2)
-    (button :onclick "wmctrl -s 2" 3)
-    (button :onclick "wmctrl -s 3" 4)
-    (button :onclick "wmctrl -s 4" 5)
-    (button :onclick "wmctrl -s 5" 6)
-    (button :onclick "wmctrl -s 6" 7)
-    (button :onclick "wmctrl -s 7" 8)
-    (button :onclick "wmctrl -s 8" 9)))
+    (button :onclick "hyprctl dispatch workspace 1" 1)
+    (button :onclick "hyprctl dispatch workspace 2" 2)
+    (button :onclick "hyprctl dispatch workspace 3" 3)
+    (button :onclick "hyprctl dispatch workspace 4" 4)
+    (button :onclick "hyprctl dispatch workspace 5" 5)
+    (button :onclick "hyprctl dispatch workspace 6" 6)
+    (button :onclick "hyprctl dispatch workspace 7" 7)
+    (button :onclick "hyprctl dispatch workspace 8" 8)
+    (button :onclick "hyprctl dispatch workspace 9" 9)
+    ))
 
 (defwidget music []
   (box :class "music"
        :orientation "h"
        :space-evenly false
        :halign "center"
-    {music != "" ? "🎵${music}" : ""}))
+       (window_w)
+    {music != "" ? "________🎵${music}" : ""}))
 
 
 (defwidget metric [label value onchange]
@@ -68,8 +78,9 @@
   :windowtype "dock"
   :geometry (geometry :x "0%"
                       :y "0%"
-                      :width "90%"
-                      :height "10px"
+                      :width "100%"
+                      :height "30px"
                       :anchor "top center")
   :reserve (struts :side "top" :distance "4%")
+  :exclusive true
   (bar))
