@@ -1,4 +1,5 @@
 @import "mocha.css";
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: "Fira Mono";
@@ -7,7 +8,7 @@
 
     border-radius: 10px;
     text-shadow: none;
-    
+
     transition-property: background;
     transition-duration: 0.2s;
 }
@@ -21,9 +22,9 @@ window#waybar.hidden {
 }
 
 #workspaces {
-	margin-top: 6px;
-	background: rgba(16, 20, 24, 0.5);
-	transition: none;
+    margin-top: 6px;
+    background: rgba(16, 20, 24, 0.5);
+    transition: none;
 
     font-size: 12px;
 }
@@ -72,12 +73,12 @@ window#waybar.hidden {
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > * {
+.modules-left>widget:first-child>* {
     margin-left: 16px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > * {
+.modules-right>widget:last-child>* {
     margin-right: 16px;
 }
 
@@ -100,6 +101,18 @@ window#waybar.hidden {
     background-color: @base;
     color: @text;
 }
+
+#battery.full {
+    color: green;
+}
+#battery.warning {
+    color: orange;
+}
+
+#battery.critical {
+    background: red;
+}
+
 #pulseaudio {
     background-color: @base;
     color: @text;

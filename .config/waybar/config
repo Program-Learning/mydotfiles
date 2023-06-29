@@ -23,26 +23,27 @@
     },
     "clock": {
         "interval": 1,
-        "format": "\uf017 {:%H:%M:%S}",
-        "format-alt": "\uf133 {:%Y-%m-%d %H:%M:%S}"
+        "format": "\uf017  {:%H:%M:%S}",
+        "format-alt": "\uf133  {:%Y-%m-%d %H:%M:%S}"
     },
     "cpu": {
         "interval": 1,
-        "format": " {usage}%",
+        "format": "{usage}% ",
         "tooltip": false
     },
     "memory": {
         "interval": 1,
-        "format": " {used}G",
+        "format": "{used}G ",
         "tooltip": false
     },
     "battery": {
         "states": {
             "warning": 30,
-            "critical": 15
+            "critical": 15,
+            "full":90
         },
-        "format": "<span foreground='#928374'>{icon}  </span> {capacity}%",
-        "format-charging": "<span foreground='#928374'>⚡ {icon}  </span> {capacity}%",
+        "format": "{capacity}% <span foreground='#928374'>{icon}</span>",
+        "format-charging": "{capacity}%<span foreground='#928374'>⚡{icon}</span>",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
