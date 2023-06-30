@@ -66,6 +66,8 @@ window#waybar.hidden {
 #tray,
 #mode,
 #battery,
+#backlight,
+#custom-power,
 #window {
     margin-top: 6px;
     padding: 0 12px;
@@ -82,22 +84,14 @@ window#waybar.hidden {
     margin-right: 16px;
 }
 
-#clock {
-    background-color: @base;
-    color: @text;
-}
-
-#cpu {
-    background-color: @base;
-    color: @text;
-}
-
-#memory {
-    background-color: @base;
-    color: @text;
-}
-
-#battery {
+#clock,
+#cpu,
+#memory,
+#battery,
+#backlight,
+#pulseaudio,
+#network,
+#custom-power {
     background-color: @base;
     color: @text;
 }
@@ -105,22 +99,17 @@ window#waybar.hidden {
 #battery.full {
     color: green;
 }
+
+#battery.half {
+    color: yellowgreen;
+}
+
 #battery.warning {
     color: orange;
 }
 
 #battery.critical {
     background: red;
-}
-
-#pulseaudio {
-    background-color: @base;
-    color: @text;
-}
-
-#network {
-    background-color: @base;
-    color: @text;
 }
 
 #tray {
