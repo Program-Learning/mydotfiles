@@ -1,93 +1,72 @@
 {
     "layer": "top",
-    "position": "top",
-    "height": 40,
-    "spacing": 6,
-    "modules-left": [
-        "wlr/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-        "tray",
-        "network",
-        "backlight",
-        "pulseaudio",
-        "memory",
-        "cpu",
-        "battery",
-        "custom/power"
-    ],
+    "position": "bottom",
+    "height": 30,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-bottom": 0,
+    "margin-right": 0,
+    "spacing": 5, 
+    "modules-left": ["custom/launcher", "wlr/workspaces",],
+    "modules-center": [],
+    "modules-right": ["tray", "backlight", "pulseaudio", "network", "battery", "clock", "custom/power-menu"],
     "wlr/workspaces": {
-        "format": "{icon}",
-        "sort-by-number": true,
-        "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1"
+      //"format": "{icon}",
+      "on-click": "activate",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "urgent": "",
+        "active": "",
+        "default": ""
+      }
     },
     "hyprland/window": {
-        "format": "\uf061  {}",
-        "separate-outputs": true
+        "format": "{}"
     },
     "tray": {
-        "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        "interval": 1,
-        "format": "\uf017  {:%H:%M:%S}",
-        "format-alt": "\uf133  {:%Y-%m-%d %H:%M:%S}"
+        "format": "<span color='#bf616a'> </span>{:%I:%M %p}",
+        "format-alt": "<span color='#bf616a'> </span>{:%a %b %d}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     },
+
     "cpu": {
-        "interval": 1,
-        "format": "{usage}% ",
-        "tooltip": false
+      "interval": 10,
+      "format": " {}%",
+      "max-length": 10,
+      "on-click": "",
     },
     "memory": {
-        "interval": 1,
-        "format": "{used}G ",
-        "tooltip": false
+        "interval": 30,
+        "format": " {}%",
+        "format-alt":" {used:0.1f}G",
+        "max-length": 10,
     },
-    "battery": {
-        "states": {
-            "critical": 15,
-            "warning": 30,
-            "half": 50,
-            "full": 90
-        },
-        "format": "{capacity}% <span foreground='#928374'>{icon}</span>",
-        "format-charging": "{capacity}%<span foreground='#928374'>⚡{icon}</span>",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    "custom/power": {
-        "format": "",
-        "on-click": "wlogout",
-        "on-click-right": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec systemctl suspend' -b 'shutdown' 'systemctl shutdown'"
+    "backlight": {
+        "device": "DP-1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-click": "",
     },
     "network": {
-        "interval": 1,
-        "format-wifi": "  {essid} ({signalStrength}%)",
-        "format-ethernet": "\uf796 {bandwidthUpBits} {bandwidthDownBits}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "⚠ Disconnected",
-        "tooltip-format": " {ifname} {ipaddr}/{cidr} via {gwaddr}",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-right":"nm-connection-editor"
+        "format-wifi": "直 {signalStrength}%",
+        "format-ethernet": " wired",
+        "format-disconnected": "睊",
+        "on-click": "bash ~/.config/waybar/scripts/rofi-wifi-menu.sh",
+        "format-disconnected": "Disconnected  ",
     },
+
     "pulseaudio": {
-        "scroll-step": 5,
-        "format": "{icon}  {volume}%",
-        "format-muted": "🔇",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-bluetooth-muted": "🔇 {icon}",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "  {volume}%",
+        "format-bluetooth-muted": "",
+        "format-muted": "婢",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -95,28 +74,49 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": [
-                "",
-                "",
-                ""
-            ]
+            "default": ["", "", ""]
         },
-        "on-click-right": "pavucontrol",
-        "on-click":"amixer -q sset Master toggle"
+        "on-click": "pavucontrol"
     },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
+
+    "bluetooth": {
+        "on-click": "~/.config/waybar/scripts/rofi-bluetooth &",
+        "format": " {status}",
+    },
+
+    "battery": {
+      "bat": "BAT0",
+      "adapter": "ADP0",
+      "interval": 60,
+      "states": {
+          "warning": 30,
+          "critical": 15
+      },
+      "max-length": 20,
+      "format": "{icon} {capacity}%",
+      "format-warning": "{icon} {capacity}%",
+      "format-critical": "{icon} {capacity}%",
+      "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+      "format-plugged": "  {capacity}%",
+      "format-alt": "{icon} {time}",
+      "format-full": "  {capacity}%",
+      "format-icons": [" ", " ", " ", " ", " "],
+    },
+    
+   "custom/spotify": {
+    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-double-click-right": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    },
+    "custom/power-menu": {
+        "format": " <span color='#6a92d7'>⏻ </span>",
+        "on-click": "bash ~/.config/waybar/scripts/power-menu/powermenu.sh",
+    }, 
+    "custom/launcher": {
+        "format": " <span color='#6a92d7'> </span>",
+        "on-click": "rofi -show drun",
     },
 }
