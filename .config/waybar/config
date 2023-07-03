@@ -9,11 +9,11 @@
     "spacing": 5,
     "modules-left": [
         "custom/launcher",
+        "custom/power-menu",
         "idle_inhibitor",
         "wlr/workspaces"
     ],
     "modules-center": [
-        "hyprland/window"
     ],
     "modules-right": [
         "tray",
@@ -21,31 +21,20 @@
         "pulseaudio",
         "network",
         "battery",
-        "clock",
-        "custom/power-menu"
+        "clock"
     ],
     "wlr/workspaces": {
         "format": "{icon}",
         "sort-by-number": true,
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
-        "format-icons": {
-            // "1": "",
-            // "2": "",
-            // "3": "",
-            // "4": "",
-            // "5": "",
-            // "urgent": "",
-            // "active": "",
-            // "default": ""
-        }
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " "
         }
     },
     "hyprland/window": {
@@ -160,7 +149,7 @@
         "on-click-right": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec systemctl suspend' -b 'shutdown' 'systemctl shutdown'"
     },
     "custom/launcher": {
-        "format": " <span color='#6a92d7'>start </span>",
-        "on-click": "rofi -combi-modi drun,ssh -show combi -terminal kitty"
+        "format": " <span color='#6a92d7'>start</span>",
+        "on-click-right": "rofi -combi-modi drun,ssh -show combi -terminal kitty"
     }
 }
