@@ -77,8 +77,9 @@
         ]
     },
     "network": {
-        "format-wifi": "  {essid} ({signalStrength}%){bandwidthUpBits} {bandwidthDownBits}",
-        "format-ethernet": "\uf796 {bandwidthUpBits} {bandwidthDownBits}",
+        "interval": 1,
+        "format-wifi": "  {essid} ({signalStrength}%){bandwidthUpBytes} {bandwidthDownBytes}",
+        "format-ethernet": "\uf796 {bandwidthUpBytes} {bandwidthDownBytes}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
         "tooltip-format": " {ifname} {ipaddr}/{cidr} via {gwaddr}",
