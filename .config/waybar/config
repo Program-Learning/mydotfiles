@@ -79,7 +79,8 @@
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
         "tooltip-format": " {ifname} {ipaddr}/{cidr} via {gwaddr}",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right":"nm-connection-editor"
     },
     "pulseaudio": {
         "scroll-step": 5,
@@ -100,7 +101,8 @@
                 ""
             ]
         },
-        "on-click-right": "pavucontrol"
+        "on-click-right": "pavucontrol",
+        "on-click":"amixer -q sset Master toggle"
     },
     "backlight": {
         // "device": "acpi_video1",
