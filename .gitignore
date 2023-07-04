@@ -3,3 +3,4 @@
 !.gitignore
 !.gitconfig
 !.[^/]*rc
+.nvidia-settings-rc
