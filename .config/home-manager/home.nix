@@ -1,8 +1,13 @@
 { config, pkgs, ... }:
-
-{
+let
+  nur-no-pkgs = import (builtins.fetchTarball
+    "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+in {
   imports = [ # Include the results
   ];
+  nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "nixos";
@@ -22,7 +27,50 @@
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    pkgs.hello
+    # pkgs.hello
+    nur-no-pkgs.repos.YisuiMilena.hmcl-bin
+    pkgs.minecraft
+    pkgs.prismlauncher
+    # nur-no-pkgs.repos.xddxdd.wine-wechat
+    # nur-no-pkgs.repos.linyinfeng.wemeet
+    pkgs.protonup-qt
+    # Netease music
+    pkgs.yesplaymusic
+    pkgs.clash-verge
+    pkgs.sing-box
+    # Office
+    pkgs.onlyoffice-bin
+    pkgs.libreoffice
+    # math software
+    pkgs.geogebra6
+    # communication apps
+    pkgs.tdesktop
+    pkgs.qq
+    # web browsers
+    pkgs.firefox
+    pkgs.google-chrome
+    # screen capture
+    pkgs.obs-studio
+    pkgs.grim
+    pkgs.wf-recorder
+    # video software
+    pkgs.mpv
+    pkgs.vlc
+    # file manager
+    pkgs.gnome.nautilus
+    # download manager
+    pkgs.motrix
+    pkgs.wineWowPackages.waylandFull
+    pkgs.winetricks
+    pkgs.onscripter-en
+    # playonlinux
+    # bottles
+    # bottles-unwrapped
+    pkgs.lutris
+    # pkgs.lutris-unwrapped
+    # remote control
+    pkgs.wayvnc
+    pkgs.remmina
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
