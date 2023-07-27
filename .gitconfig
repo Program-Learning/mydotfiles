@@ -1,6 +1,0 @@
-[safe]
-	directory = /var/www/nixos.example.com
-	directory = /etc/nixos
-[user]
-	name = Your Name
-	email = you@example.com
